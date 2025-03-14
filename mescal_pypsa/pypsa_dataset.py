@@ -1,0 +1,62 @@
+from typing import Type
+
+from pypsa import Network
+
+from mescal.datasets import PlatformDataset, Dataset
+from mescal.databases import Database
+from mescal.utils.logging import get_logger
+
+from mescal_pypsa.network_interpreters.base import PyPSAInterpreter
+from mescal_pypsa.pypsa_config import PyPSADatasetConfig
+from mescal_pypsa.pypsa_flag_index import PyPSAFlagIndex
+
+logger = get_logger(__name__)
+
+
+class PyPSADataset(PlatformDataset[Dataset, PyPSADatasetConfig, str, PyPSAFlagIndex]):
+    def __init__(
+            self,
+            network: Network,
+            name: str = None,
+            attributes: dict = None,
+            database: Database = None,
+            config: PyPSADatasetConfig = None,
+    ):
+        if name is None and network.name is None:
+            logger.info(f'No name passed ')
+        super().__init__(
+            name=name or network.name or f'{PyPSADataset.__name__}_{str(id(self))}',
+            flag_index=self.get_flag_index_type()(self),
+            attributes=attributes,
+            database=database,
+            config=config,
+            network=network,
+        )
+        self.n = network
+
+    @classmethod
+    def get_flag_type(cls) -> Type[str]:
+        return str
+
+    @classmethod
+    def get_flag_index_type(cls) -> type[PyPSAFlagIndex]:
+        return PyPSAFlagIndex
+
+    @classmethod
+    def get_config_type(cls) -> type[PyPSADatasetConfig]:
+        return PyPSADatasetConfig
+
+    @classmethod
+    def get_child_dataset_type(cls) -> type[PyPSAInterpreter]:
+        return PyPSAInterpreter
+
+    @classmethod
+    def _register_core_interpreters(cls):
+        from mescal_pypsa.network_interpreters.model import PyPSAModelInterpreter
+        from mescal_pypsa.network_interpreters.time_series import PyPSATimeSeriesInterpreter
+
+        cls.register_interpreter(PyPSAModelInterpreter)
+        cls.register_interpreter(PyPSATimeSeriesInterpreter)
+
+
+PyPSADataset._register_core_interpreters()
