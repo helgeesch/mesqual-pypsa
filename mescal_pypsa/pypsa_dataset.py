@@ -54,9 +54,11 @@ class PyPSADataset(PlatformDataset[Dataset, PyPSADatasetConfig, str, PyPSAFlagIn
     def _register_core_interpreters(cls):
         from mescal_pypsa.network_interpreters.model import PyPSAModelInterpreter
         from mescal_pypsa.network_interpreters.time_series import PyPSATimeSeriesInterpreter
+        from mescal_pypsa.network_interpreters.objective import PyPSAObjectiveInterpreter
 
         cls.register_interpreter(PyPSAModelInterpreter)
         cls.register_interpreter(PyPSATimeSeriesInterpreter)
+        cls.register_interpreter(PyPSAObjectiveInterpreter)
 
 
 PyPSADataset._register_core_interpreters()
