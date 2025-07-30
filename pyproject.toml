@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mescal-pypsa"
+version = "0.1.0"
+description = "mescal-interface for PyPSA"
+readme = "README.md"
+license = {file = "LICENSES/LGPL-3.0-or-later.txt"}
+authors = [
+    {name = "Helge Esch"}
+]
+maintainers = [
+    {name = "Helge Esch"}
+]
+dependencies = [
+    "pandas",
+    "pypsa",
+]
+
+[project.urls]
+Homepage = "https://github.com/helgeesch/mescal-pypsa"
+Repository = "https://github.com/helgeesch/mescal-pypsa"
+Documentation = "https://github.com/helgeesch/mescal-pypsa#readme"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["mescal_pypsa", "mescal_pypsa.*"]
