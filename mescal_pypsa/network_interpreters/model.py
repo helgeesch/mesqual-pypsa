@@ -76,7 +76,6 @@ class PyPSAModelInterpreter(PyPSAInterpreter):
 
                 df.loc[:, 'location'] = df.apply(_get_location, axis=1)
 
-
         elif 'bus' in df.columns:
             df = self.membership_prop_enricher.append_single_membership_properties(
                 df,
