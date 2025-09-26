@@ -2,10 +2,10 @@ from typing import TYPE_CHECKING
 
 import pandas as pd
 
-from mescal_pypsa.network_interpreters.base import PyPSAInterpreter
+from mesqual_pypsa.network_interpreters.base import PyPSAInterpreter
 
 if TYPE_CHECKING:
-    from mescal_pypsa.pypsa_config import PyPSADatasetConfig
+    from mesqual_pypsa.pypsa_config import PyPSADatasetConfig
 
 
 class PyPSATimeSeriesInterpreter(PyPSAInterpreter):

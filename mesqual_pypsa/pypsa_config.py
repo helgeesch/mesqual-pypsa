@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 
-from mescal.datasets import DatasetConfig
+from mesqual.datasets import DatasetConfig
 
 
 @dataclass

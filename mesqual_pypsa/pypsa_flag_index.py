@@ -1,8 +1,8 @@
-from mescal.enums import ItemTypeEnum, VisualizationTypeEnum, TopologyTypeEnum
-from mescal.flag.flag_index import FlagIndex
-from mescal.units import Units
-from mescal.utils.logging import get_logger
-from mescal.utils.string_inflections import to_plural, to_singular
+from mesqual.enums import ItemTypeEnum, VisualizationTypeEnum, TopologyTypeEnum
+from mesqual.flag.flag_index import FlagIndex
+from mesqual.units import Units
+from mesqual.utils.logging import get_logger
+from mesqual.utils.string_inflections import to_plural, to_singular
 
 logger = get_logger(__name__)
 

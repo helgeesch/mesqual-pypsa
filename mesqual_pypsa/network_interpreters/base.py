@@ -3,14 +3,14 @@ from __future__ import annotations
 from abc import ABC
 from typing import TYPE_CHECKING
 
-from mescal.datasets import Dataset
+from mesqual.datasets import Dataset
 
-from mescal_pypsa.pypsa_config import PyPSADatasetConfig
-from mescal_pypsa.pypsa_flag_index import PyPSAFlagIndex
+from mesqual_pypsa.pypsa_config import PyPSADatasetConfig
+from mesqual_pypsa.pypsa_flag_index import PyPSAFlagIndex
 
 if TYPE_CHECKING:
     from pypsa import Network
-    from mescal_pypsa.pypsa_dataset import PyPSADataset
+    from mesqual_pypsa.pypsa_dataset import PyPSADataset
 
 
 class PyPSAInterpreter(Dataset[PyPSADatasetConfig, str, PyPSAFlagIndex], ABC):

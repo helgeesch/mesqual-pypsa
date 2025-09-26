@@ -2,16 +2,16 @@ from typing import TYPE_CHECKING
 from shapely import Point, LineString
 import pandas as pd
 
-from mescal_pypsa.network_interpreters.base import PyPSAInterpreter
-from mescal.energy_data_handling.model_handling.membership_property_enrichers import (
+from mesqual_pypsa.network_interpreters.base import PyPSAInterpreter
+from mesqual.energy_data_handling.model_handling.membership_property_enrichers import (
     MembershipPropertyEnricher,
     DirectionalMembershipPropertyEnricher, MembershipTagging,
 )
-from mescal.energy_data_handling.model_handling.membership_pairs_appender import StringMembershipPairsAppender
-from mescal.utils.geo_utils.geo_from_string import convert_wkt_series
+from mesqual.energy_data_handling.model_handling.membership_pairs_appender import StringMembershipPairsAppender
+from mesqual.utils.geo_utils.geo_from_string import convert_wkt_series
 
 if TYPE_CHECKING:
-    from mescal_pypsa.pypsa_config import PyPSADatasetConfig
+    from mesqual_pypsa.pypsa_config import PyPSADatasetConfig
 
 
 class PyPSAModelInterpreter(PyPSAInterpreter):

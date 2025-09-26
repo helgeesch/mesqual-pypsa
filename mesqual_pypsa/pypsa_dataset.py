@@ -2,13 +2,13 @@ from typing import Type
 
 from pypsa import Network
 
-from mescal.datasets import PlatformDataset, Dataset
-from mescal.databases import Database
-from mescal.utils.logging import get_logger
+from mesqual.datasets import PlatformDataset, Dataset
+from mesqual.databases import Database
+from mesqual.utils.logging import get_logger
 
-from mescal_pypsa.network_interpreters.base import PyPSAInterpreter
-from mescal_pypsa.pypsa_config import PyPSADatasetConfig
-from mescal_pypsa.pypsa_flag_index import PyPSAFlagIndex
+from mesqual_pypsa.network_interpreters.base import PyPSAInterpreter
+from mesqual_pypsa.pypsa_config import PyPSADatasetConfig
+from mesqual_pypsa.pypsa_flag_index import PyPSAFlagIndex
 
 logger = get_logger(__name__)
 
@@ -52,9 +52,9 @@ class PyPSADataset(PlatformDataset[Dataset, PyPSADatasetConfig, str, PyPSAFlagIn
 
     @classmethod
     def _register_core_interpreters(cls):
-        from mescal_pypsa.network_interpreters.model import PyPSAModelInterpreter
-        from mescal_pypsa.network_interpreters.time_series import PyPSATimeSeriesInterpreter
-        from mescal_pypsa.network_interpreters.objective import PyPSAObjectiveInterpreter
+        from mesqual_pypsa.network_interpreters.model import PyPSAModelInterpreter
+        from mesqual_pypsa.network_interpreters.time_series import PyPSATimeSeriesInterpreter
+        from mesqual_pypsa.network_interpreters.objective import PyPSAObjectiveInterpreter
 
         cls.register_interpreter(PyPSAModelInterpreter)
         cls.register_interpreter(PyPSATimeSeriesInterpreter)
