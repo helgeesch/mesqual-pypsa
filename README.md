@@ -1,7 +1,7 @@
 [![Python >=3.10](https://img.shields.io/badge/python-≥3.10-blue.svg)](https://www.python.org/downloads/release/python-3100/)
 [![License: LGPL v3](https://img.shields.io/badge/License-LGPL%20v3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0)
 
-# MESQUAL PyPSA <img src="https://raw.githubusercontent.com/helgeesch/mesqual/0fd73109a9dd36611c3669987229e2b50ba6ec98/assets/logo_no_text_no_bg.svg" width="70" height="70" alt="logo">
+# MESQUAL PyPSA <img src="https://raw.githubusercontent.com/helgeesch/mesqual/18fe3fc20bace115a116555b2872d57925698e48/assets/logo-turq.svg" width="70" height="70" alt="logo">
 This is the [mesqual](https://github.com/helgeesch/mesqual)-interface package for [PyPSA](https://github.com/PyPSA/PyPSA) Network objects.
 
 ## Minimum usage examples
