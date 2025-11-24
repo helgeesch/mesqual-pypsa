@@ -65,6 +65,8 @@ class PyPSAFlagIndex(FlagIndex):
     def _get_unit(self, flag: str) -> Units.Unit:
         if 'marginal_price' in flag:
             return Units.EUR_per_MWh
+        if flag == 'generators_t.p':
+            return Units.MW
         return Units.NaU
 
     def _get_linked_model_flag_for_membership_column(self, membership_column_name: str) -> str:
