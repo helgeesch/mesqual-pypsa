@@ -20,9 +20,9 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/helgeesch/mesqual-pypsa"
+Homepage = "https://mesqual.io"
 Repository = "https://github.com/helgeesch/mesqual-pypsa"
-Documentation = "https://github.com/helgeesch/mesqual-pypsa#readme"
+Documentation = "https://docs.mesqual.io"
 
 [tool.setuptools.packages.find]
 where = ["."]

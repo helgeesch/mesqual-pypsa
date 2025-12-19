@@ -65,7 +65,7 @@ class PyPSAModelInterpreter(PyPSAInterpreter):
 
             if flag == 'transformers':
                 if 'location' not in df.columns:
-                    df.loc[:, 'location'] = None
+                    df['location'] = None
 
                 def _get_location(o: pd.Series) -> Point | None:
                     if 'bus_location0' in o and isinstance(o['bus_location0'], Point):
