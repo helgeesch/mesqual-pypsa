@@ -1,6 +1,7 @@
 from typing import TYPE_CHECKING
 from shapely import Point, LineString
 import pandas as pd
+import geopandas as gpd
 
 from mesqual_pypsa.network_interpreters.base import PyPSAInterpreter
 from mesqual.energy_data_handling.model_handling.membership_property_enrichers import (
@@ -50,7 +51,7 @@ class PyPSAModelInterpreter(PyPSAInterpreter):
             df = self.from_to_pairs_as_str_appender.append_opposite_combo_columns(df)
             if flag in ['lines', 'links']:
                 if 'geometry' not in df.columns:
-                    df.loc[:, 'geometry'] = None
+                    df.insert(len(df.columns), 'geometry', None)
 
                 def _get_linestring(o: pd.Series) -> LineString | None:
                     if o.geometry is not None:
@@ -61,7 +62,8 @@ class PyPSAModelInterpreter(PyPSAInterpreter):
                         return LineString([o['bus_location0'], o['bus_location1']])
                     return None
 
-                df.loc[:, 'geometry'] = df.apply(_get_linestring, axis=1)
+                if not df.empty:
+                    df.loc[:, 'geometry'] = df.apply(_get_linestring, axis=1)
 
             if flag == 'transformers':
                 if 'location' not in df.columns:
@@ -84,8 +86,10 @@ class PyPSAModelInterpreter(PyPSAInterpreter):
                 membership_tagging=MembershipTagging.PREFIX
             )
 
-        if 'geometry' in df.columns and is_all_string_or_empty(df['geometry']):
-            df['geometry'] = convert_wkt_series(df['geometry'])
+        if 'geometry' in df.columns:
+            if is_all_string_or_empty(df['geometry']):
+                df['geometry'] = convert_wkt_series(df['geometry'])
+            df = gpd.GeoDataFrame(df, geometry='geometry', crs="EPSG:4326")
 
         return df
 
