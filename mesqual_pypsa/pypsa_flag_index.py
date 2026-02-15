@@ -63,10 +63,15 @@ class PyPSAFlagIndex(FlagIndex):
         return TopologyTypeEnum.Other
 
     def _get_unit(self, flag: str) -> Units.Unit:
-        if 'marginal_price' in flag:
-            return Units.EUR_per_MWh
-        if flag == 'generators_t.p':
+
+        _mw_variables_contain = ['flow', 'trade_balance', '.p']
+        if any(i in flag for i in _mw_variables_contain):
             return Units.MW
+
+        _eur_per_mwh_contain = ['marginal_price']
+        if any(i in flag for i in _eur_per_mwh_contain):
+            return Units.EUR_per_MWh
+
         return Units.NaU
 
     def _get_linked_model_flag_for_membership_column(self, membership_column_name: str) -> str:
