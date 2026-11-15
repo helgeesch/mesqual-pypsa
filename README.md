@@ -2,6 +2,12 @@
 [![License: LGPL v3](https://img.shields.io/badge/License-LGPL%20v3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0)
 
 # MESQUAL PyPSA <img src="https://raw.githubusercontent.com/helgeesch/mesqual/18fe3fc20bace115a116555b2872d57925698e48/assets/logo-turq.svg" width="70" height="70" alt="logo">
+
+> [!WARNING]
+> **Deprecated.** This package works only with [mesqual](https://github.com/helgeesch/mesqual) 0.x. It does not work with mesqual 2.0 and later.
+> - To keep using it, install mesqual 0.1.0 from git: `pip install "mesqual @ git+https://github.com/helgeesch/mesqual@v0.1.0"`. mesqual 0.x is not on PyPI.
+> - To build a platform package for mesqual 2, see the guide [Build a platform package](https://docs.mesqual.io/guides/build-a-platform-package/).
+
 This is the [mesqual](https://github.com/helgeesch/mesqual)-interface package for [PyPSA](https://github.com/PyPSA/PyPSA) Network objects.
 
 ## Minimum usage examples
